@@ -1,0 +1,29 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Login</h2>
+    <div>
+      <mat-form-field class="form-group">
+        <mat-label>Email</mat-label>
+        <input matInput id="email" type="email" placeholder="Enter your email" [(ngModel)]="email"/>
+        <mat-icon class="icon">email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="showPassword() ? 'text' : 'password'"
+          placeholder="Enter your password"
+          [(ngModel)]="password"
+        />
+
+        <mat-icon (click)="togglePasswordVisibility()" class="icon">{{ showPassword() ? 'visibility' : 'visibility_off' }}</mat-icon>
+      </mat-form-field>
+    </div>
+    <button type="submit" class="login-button" (click)="login()">Login</button>
+    <p class="signup-text">
+      Don't have an account?
+      <a routerLink="/signup">Sign up</a>
+    </p>
+  </div>
+</div>

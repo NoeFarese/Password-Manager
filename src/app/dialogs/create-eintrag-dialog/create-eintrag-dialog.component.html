@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Erstelle einen neuen Eintrag</h1>
+
+<div mat-dialog-content class="create-eintrag-dialog-container">
+  <mat-form-field>
+    <mat-label>Titel</mat-label>
+    <input matInput [(ngModel)]="title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Benutzername</mat-label>
+    <input matInput [(ngModel)]="username">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="password">
+  </mat-form-field>
+
+  <button mat-button (click)="generateRandomPassword()">Generiere Passwort</button>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Abbrechen</button>
+  <button mat-button (click)="saveEintrag()">Speichern</button>
+</div>

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Bearbeite deinen Eintrag</h1>
+
+<div mat-dialog-content class="edit-eintrag-dialog-container">
+  <mat-form-field>
+    <mat-label>Titel</mat-label>
+    <input matInput [(ngModel)]="title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="username">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Passwort</mat-label>
+    <input matInput [(ngModel)]="password">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Abbrechen</button>
+  <button mat-button (click)="updateEintrag()">Speichern</button>
+</div>

@@ -1,0 +1,56 @@
+.header-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  align-items: center;
+}
+
+.logout-button-container  { grid-area: 1 / 1 / 2 / 2; }
+.searchbar-container { grid-area: 1 / 2 / 2 / 3; }
+
+#search-icon {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  transform: translateX(80%);
+}
+
+#logout-button, #add-eintrag-button {
+  margin-right: 5px;
+  background-color: #01a3e0;
+  color: white;
+  border-radius: 5px;
+}
+
+#add-eintrag-button {
+  margin-top: 2rem;
+}
+
+#delete-icon {
+  color: #d42626;
+}
+
+.no-entries-message {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d42626;
+  margin-top: 10px;
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  margin-right: 5vw;
+}
+
+mat-form-field {
+  width: 80vw;
+}
+
+mat-icon {
+  margin-left: 1rem;
+}
