@@ -23,6 +23,15 @@
     </span>
       <div class="strength-bar" [style.width.%]="passwordStrength().score * 20"
            [style.backgroundColor]="passwordStrength().color"></div>
+      @if (passwordStrength().score <= 3) {
+        <p>Verwende:</p>
+        <ul>
+          <li>Gross- und Kleinbuchstaben</li>
+          <li>Zahlen</li>
+          <li>Sonderzeichen</li>
+          <li>viele Zeichen bzw. langes Passwort</li>
+        </ul>
+      }
     </div>
   }
 
