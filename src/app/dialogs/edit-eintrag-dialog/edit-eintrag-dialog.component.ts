@@ -1,4 +1,4 @@
-import { Component, Inject, inject, signal } from '@angular/core';
+import {Component, computed, Inject, inject, signal} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -13,6 +13,7 @@ import { MatButton } from '@angular/material/button';
 import { Eintrag } from '../../models/eintrag';
 import { SnackbarService } from '../../util/snackbar.service';
 import {FirebaseService} from '../../util/firebase.service';
+import {getPasswordStrength} from '../../util/password-strength.util';
 
 @Component({
   selector: 'app-edit-eintrag-dialog',
@@ -35,6 +36,8 @@ export class EditEintragDialogComponent {
   protected username = signal<string>('');
   protected password = signal<string>('');
   protected uuid = signal<string>('');
+  protected passwordStrength = computed(() => getPasswordStrength(this.password()));
+
   private firebaseService = inject(FirebaseService);
   private snackbarService = inject(SnackbarService);
 

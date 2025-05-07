@@ -1,4 +1,4 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, computed, inject, signal} from '@angular/core';
 import {SnackbarService} from '../../util/snackbar.service';
 import {MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle} from '@angular/material/dialog';
 import {Eintrag} from '../../models/eintrag';
@@ -8,6 +8,7 @@ import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {FirebaseService} from '../../util/firebase.service';
 import { v4 as uuidv4 } from 'uuid';
+import {getPasswordStrength} from '../../util/password-strength.util';
 
 @Component({
   selector: 'app-create-eintrag-dialog',
@@ -29,6 +30,8 @@ export class CreateEintragDialogComponent {
   protected title = signal<string>('');
   protected username = signal<string>('');
   protected password = signal<string>('');
+  protected passwordStrength = computed(() => getPasswordStrength(this.password()));
+
   private snackbarService = inject(SnackbarService);
   private firebaseService = inject(FirebaseService);
 

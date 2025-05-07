@@ -16,6 +16,16 @@
     <input matInput [(ngModel)]="password">
   </mat-form-field>
 
+  @if (password()) {
+    <div class="password-strength">
+    <span [style.color]="passwordStrength().color">
+      Stärke: {{ passwordStrength().label }}
+    </span>
+      <div class="strength-bar" [style.width.%]="passwordStrength().score * 20"
+           [style.backgroundColor]="passwordStrength().color"></div>
+    </div>
+  }
+
   <button mat-button (click)="generateRandomPassword()">Generiere Passwort</button>
 </div>
 
