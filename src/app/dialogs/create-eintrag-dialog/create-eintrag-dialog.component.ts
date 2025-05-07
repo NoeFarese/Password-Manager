@@ -60,6 +60,7 @@ export class CreateEintragDialogComponent {
     }
   }
 
+  // TODO: verbessern damit es stärkere Passwörter generiert
   generateRandomPassword(): void {
     const password: string = Math.random().toString(36).slice(-10);
     this.password.set(password);
