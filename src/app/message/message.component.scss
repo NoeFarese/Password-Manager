@@ -1,4 +1,4 @@
-.warning-container {
+.message-container {
   display: flex;
   justify-content: center;
 }
@@ -15,7 +15,19 @@
   min-width: 20vw;
 }
 
-.warning-icon {
+.error-message {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ff8e8e;
+  color: #c90000;
+  padding: 2rem;
+  border-radius: 16px;
+  gap: 1rem;
+  margin-top: 2rem;
+  min-width: 20vw;
+}
+
+.message-icon {
   font-size: 2.5rem;
   padding-right: 2rem;
   padding-bottom: 1rem;
