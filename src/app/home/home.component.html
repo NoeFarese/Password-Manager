@@ -12,11 +12,9 @@
   </div>
 </div>
 
-<table mat-table [dataSource]="filterEintraege()" class="mat-elevation-z8">
-  @if (!hasEntries()) {
-    <p class="no-entries-message">keine Einträge gefunden</p>
-  }
+<h1>Einträge: {{ numberOfEintraege() }} von 20</h1>
 
+<table mat-table [dataSource]="filterEintraege()" class="mat-elevation-z8">
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef> Title </th>
     <td mat-cell *matCellDef="let eintrag">
@@ -55,9 +53,17 @@
 </table>
 
 @if (filterEintraege().length === 0) {
-  <p class="no-entries-message">keine Einträge gefunden für diese Suche</p>
+  <app-error-message message="keine Einträge gefunden"/>
 }
 
-<button mat-raised-button matTooltip="add Eintrag" id="add-eintrag-button" (click)="openCreateEintragDialog()">
-  <mat-icon>add</mat-icon>
-</button>
+@if ((numberOfEintraege() >= 15 && numberOfEintraege() < 20)) {
+  <app-warning-message message="maximale Anzahl von Einträgen fast erreicht!"/>
+}
+
+@if (numberOfEintraege() === 20) {
+  <app-error-message message="Du hast die maximale Anzahl von Einträgen erreicht!"/>
+} @else {
+  <button mat-raised-button matTooltip="add Eintrag" id="add-eintrag-button" (click)="openCreateEintragDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+}

@@ -1,0 +1,22 @@
+.warning-container {
+  display: flex;
+  justify-content: center;
+}
+
+.warning-message {
+  display: inline-flex;
+  align-items: center;
+  background-color: #efd187;
+  color: #8b6501;
+  padding: 2rem;
+  border-radius: 16px;
+  gap: 1rem;
+  margin-top: 2rem;
+  min-width: 20vw;
+}
+
+.warning-icon {
+  font-size: 2.5rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+}

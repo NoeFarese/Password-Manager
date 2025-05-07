@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
 import { Eintrag } from '../models/eintrag';
 import {
   MatCell,
@@ -24,6 +24,8 @@ import { DeleteEintragDialogComponent } from '../dialogs/delete-eintrag-dialog/d
 import {FirebaseService} from '../util/firebase.service';
 import {CommonModule} from '@angular/common';
 import {Subscription} from 'rxjs';
+import {ErrorMessageComponent} from '../error-message/error-message.component';
+import {WarningMessageComponent} from '../warning-message/warning-message.component';
 
 @Component({
   selector: 'app-home',
@@ -46,6 +48,8 @@ import {Subscription} from 'rxjs';
     MatButton,
     MatTooltip,
     CommonModule,
+    ErrorMessageComponent,
+    WarningMessageComponent,
   ],
   templateUrl: './home.component.html',
   standalone: true,
@@ -55,6 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['title', 'username', 'password'];
   protected searchTerm = signal<string>('');
   protected eintraege = signal<Eintrag[]>([]);
+  protected numberOfEintraege = computed(() => this.eintraege().length);
   protected hasEntries = signal<boolean>(true);
   private snackbarService = inject(SnackbarService);
   private router = inject(Router);
