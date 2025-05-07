@@ -24,8 +24,8 @@ import { DeleteEintragDialogComponent } from '../dialogs/delete-eintrag-dialog/d
 import {FirebaseService} from '../util/firebase.service';
 import {CommonModule} from '@angular/common';
 import {Subscription} from 'rxjs';
-import {ErrorMessageComponent} from '../error-message/error-message.component';
-import {WarningMessageComponent} from '../warning-message/warning-message.component';
+import {ErrorMessageComponent} from '../messages/error-message/error-message.component';
+import {WarningMessageComponent} from '../messages/warning-message/warning-message.component';
 
 @Component({
   selector: 'app-home',
