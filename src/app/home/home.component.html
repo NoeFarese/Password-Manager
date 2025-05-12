@@ -10,14 +10,14 @@
       <mat-icon id="search-icon">search</mat-icon>
     </mat-form-field>
   </div>
-
-  <button mat-raised-button id="toggle-favoriten-view-button" (click)="toggleFavoritenView()">
-    <mat-icon>{{ showOnlyFavoriten() ? 'visibility' : 'visibility_off' }}</mat-icon>
-    {{ showOnlyFavoriten() ? 'Alle anzeigen' : 'Nur Favoriten' }}
-  </button>
 </div>
 
 <h1>Einträge: {{ numberOfEintraege() }} von 20</h1>
+
+<button mat-raised-button id="toggle-favoriten-view-button" (click)="toggleFavoritenView()">
+  <mat-icon>{{ showOnlyFavoriten() ? 'visibility' : 'visibility_off' }}</mat-icon>
+  {{ showOnlyFavoriten() ? 'Alle anzeigen' : 'Nur Favoriten' }}
+</button>
 
 <table mat-table [dataSource]="filterEintraege()" class="mat-elevation-z8">
   <ng-container matColumnDef="title">

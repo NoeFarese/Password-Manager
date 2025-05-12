@@ -17,11 +17,17 @@
   transform: translateX(80%);
 }
 
-#logout-button, #add-eintrag-button, #toggle-favoriten-view-button {
+#logout-button,
+#add-eintrag-button,
+#toggle-favoriten-view-button {
   margin-right: 5px;
   background-color: #01a3e0;
   color: white;
   border-radius: 5px;
+}
+
+#toggle-favoriten-view-button {
+  margin-bottom: 1rem;
 }
 
 #add-eintrag-button {
