@@ -19,7 +19,7 @@ import {FirebaseService} from '../../util/firebase.service';
   styleUrl: './delete-eintrag-dialog.component.scss'
 })
 export class DeleteEintragDialogComponent {
-  protected eintrag = signal<Eintrag>({ title: '', username: '', password: '', uuid: '' });
+  protected eintrag = signal<Eintrag>({ title: '', username: '', password: '', uuid: '', isFavorit: false });
   private snackbarService = inject(SnackbarService);
   private firebaseService = inject(FirebaseService);
 

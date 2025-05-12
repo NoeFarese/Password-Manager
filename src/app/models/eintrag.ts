@@ -3,4 +3,5 @@ export interface Eintrag {
   title: string;
   username: string;
   password: string;
+  isFavorit: boolean;
 }

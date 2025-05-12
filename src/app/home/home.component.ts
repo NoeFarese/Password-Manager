@@ -54,11 +54,12 @@ import {MessageComponent} from '../message/message.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['title', 'username', 'password'];
+  displayedColumns: string[] = ['title', 'username', 'password', 'favorit'];
   protected searchTerm = signal<string>('');
   protected eintraege = signal<Eintrag[]>([]);
   protected numberOfEintraege = computed(() => this.eintraege().length);
   protected hasEntries = signal<boolean>(true);
+  protected showOnlyFavoriten = signal<boolean>(false);
   private snackbarService = inject(SnackbarService);
   private router = inject(Router);
   private dialog = inject(MatDialog);
@@ -83,13 +84,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   protected filterEintraege(): Eintrag[] {
-    if (!this.searchTerm() || this.searchTerm().length === 0) {
-      return this.eintraege();
+    let list = this.eintraege();
+
+    if (this.showOnlyFavoriten()) {
+      list = list.filter(e => e.isFavorit);
     }
 
-    return this.eintraege().filter(eintrag =>
-      eintrag.title.toLowerCase().includes(this.searchTerm().toLowerCase()) ||
-      eintrag.username.toLowerCase().includes(this.searchTerm().toLowerCase())
+    if (!this.searchTerm()) return list;
+
+    return list.filter(e =>
+      e.title.toLowerCase().includes(this.searchTerm().toLowerCase()) ||
+      e.username.toLowerCase().includes(this.searchTerm().toLowerCase())
     );
   }
 
@@ -109,6 +114,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   togglePasswordVisibility(eintrag: any) { // eslint-disable-line
     eintrag.showPassword = !eintrag.showPassword;
+  }
+
+  protected toggleFavorit(eintrag: Eintrag): void {
+    const updated = { ...eintrag, isFavorit: !eintrag.isFavorit };
+    this.firebaseService.upsertEintrag(updated);
+  }
+
+  protected toggleFavoritenView(): void {
+    this.showOnlyFavoriten.update(v => !v);
   }
 
   protected openEditEintragDialog(eintrag: Eintrag): void {

@@ -44,6 +44,7 @@ export class CreateEintragDialogComponent {
         title: this.title(),
         username: this.username(),
         password: this.password(),
+        isFavorit: false,
         uuid: uuidv4()
       }
 

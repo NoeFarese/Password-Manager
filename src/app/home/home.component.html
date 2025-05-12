@@ -10,6 +10,11 @@
       <mat-icon id="search-icon">search</mat-icon>
     </mat-form-field>
   </div>
+
+  <button mat-raised-button id="toggle-favoriten-view-button" (click)="toggleFavoritenView()">
+    <mat-icon>{{ showOnlyFavoriten() ? 'visibility' : 'visibility_off' }}</mat-icon>
+    {{ showOnlyFavoriten() ? 'Alle anzeigen' : 'Nur Favoriten' }}
+  </button>
 </div>
 
 <h1>Einträge: {{ numberOfEintraege() }} von 20</h1>
@@ -47,6 +52,18 @@
       </mat-icon>
     </td>
   </ng-container>
+
+  <ng-container matColumnDef="favorit">
+    <th mat-header-cell *matHeaderCellDef> Favorit </th>
+    <td mat-cell *matCellDef="let eintrag">
+      <mat-icon
+        (click)="toggleFavorit(eintrag)"
+        matTooltip="als Favorit markieren">
+        {{ eintrag.isFavorit ? 'favorite' : 'favorite_outline' }}
+      </mat-icon>
+    </td>
+  </ng-container>
+
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

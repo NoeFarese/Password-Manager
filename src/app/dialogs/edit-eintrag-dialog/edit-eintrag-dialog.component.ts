@@ -55,7 +55,8 @@ export class EditEintragDialogComponent {
         uuid: this.uuid(),
         title: this.title(),
         username: this.username(),
-        password: this.password()
+        password: this.password(),
+        isFavorit: false,
       }
 
       this.snackbarService.openSnackbar('Eintrag wurde erfolgreich aktualisiert', 'Schliessen', 3000);
