@@ -38,10 +38,8 @@ export class SignupComponent {
     }
     this.firebaseService.signup(this.email(), this.password()).then(() => {
       this.router.navigate(['/home']);
-      console.log('Account erstellt');
-    }).catch((error) => {
+    }).catch(() => {
       this.snackbarService.openSnackbar('Etwas ist schief gelaufen! Versuche es erneut', 'Schliessen', 3000)
-      console.log('Error firebase Authentication' + error);
     })
   }
 

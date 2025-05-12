@@ -43,7 +43,6 @@ export class EditEintragDialogComponent {
 
   constructor(public dialog: MatDialogRef<EditEintragDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Eintrag) {
-    console.log(data)
     this.title.set(this.data.title);
     this.username.set(this.data.username);
     this.password.set(this.data.password);

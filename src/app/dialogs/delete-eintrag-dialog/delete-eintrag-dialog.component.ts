@@ -34,7 +34,6 @@ export class DeleteEintragDialogComponent {
 
   protected deleteEintrag(): void {
     this.firebaseService.deleteEintrag(this.eintrag())
-    console.log(`eintrag mit id ${this.eintrag().uuid} wurde gelöscht`);
     this.snackbarService.openSnackbar('Eintrag wurde erfolgreich gelöscht', 'Schliessen', 3000);
     this.dialog.close();
   }

@@ -32,9 +32,8 @@ export class LoginComponent {
   protected login(): void {
     this.firebaseService.login(this.email(), this.password()).then(() => {
       this.router.navigate(['/home']);
-    }).catch((error) => {
+    }).catch(() => {
       this.snackbarService.openSnackbar('Email oder Passwort sind falsch', 'Schliessen', 3000)
-      console.log('Error firebase Authentication' + error);
     })
   }
 

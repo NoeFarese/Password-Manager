@@ -101,8 +101,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   protected logout(): void {
     this.firebaseService.signOut().then(()=>{
       this.router.navigate(['/login'])
-    }).catch((error) => {
-      console.log('signout Error: ' + error);
+    }).catch(() => {
       this.snackbarService.openSnackbar('Es gab ein Fehler beim Ausloggen', 'Schliessen', 3000);
       this.router.navigate(['/login'])
     })
