@@ -29,7 +29,7 @@ export class AuthSessionService {
     this.idle.setTimeout(60);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
     this.idle.onIdleStart.subscribe(() => this.snackbarService
-      .openSnackbar("Du bisst seit 4 Minuten Inaktiv: In einer Minute wirst du automatisch ausgeloggt", "okay", 60000));
+      .openSnackbar("Du bist seit 4 Minuten Inaktiv: In einer Minute wirst du automatisch ausgeloggt", "Schliessen", 60000));
     this.idle.onTimeout.subscribe(() => {
       console.warn('User has been idle too long. Logging out.');
       this.firebaseService.signOut();
