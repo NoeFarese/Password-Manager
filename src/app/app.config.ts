@@ -7,6 +7,7 @@ import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireDatabase} from '@angular/fire/compat/database';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {environment} from '../environments/environments';
+import {provideNgIdle} from '@ng-idle/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({eventCoalescing: true}),
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(),
+    provideNgIdle()
   ]
 };

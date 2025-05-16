@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import {AuthSessionService} from './util/auth.session.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,10 @@ import {RouterOutlet} from '@angular/router';
   standalone: true,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'password-manager';
+  authSessionService = inject(AuthSessionService);
+  ngOnInit() {
+    this.authSessionService.init()
+  }
 }
