@@ -12,7 +12,7 @@ import {AuthSessionService} from './util/auth.session.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'password-manager';
+
   authSessionService = inject(AuthSessionService);
   ngOnInit() {
     this.authSessionService.init()
