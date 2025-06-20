@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<h1>Einträge: {{ numberOfEintraege() }} von 20</h1>
+<h1>Einträge: {{ numberOfEintraege() }} von {{ maximalNumberOfEintrage() }}</h1>
 
 <button mat-raised-button id="toggle-favoriten-view-button" (click)="toggleFavoritenView()">
   <mat-icon>{{ showOnlyFavoriten() ? 'visibility' : 'visibility_off' }}</mat-icon>
@@ -73,11 +73,11 @@
   <app-message type="error" message="keine Einträge gefunden"/>
 }
 
-@if ((numberOfEintraege() >= 15 && numberOfEintraege() < 20)) {
+@if ((numberOfEintraege() >= 2 && numberOfEintraege() < maximalNumberOfEintrage())) {
   <app-message type="warning" message="maximale Anzahl von Einträgen fast erreicht!"/>
 }
 
-@if (numberOfEintraege() === 20) {
+@if (numberOfEintraege() === maximalNumberOfEintrage()) {
   <app-message type="error" message="Du hast die maximale Anzahl von Einträgen erreicht!"/>
 } @else {
   <button mat-raised-button matTooltip="add Eintrag" id="add-eintrag-button" (click)="openCreateEintragDialog()">

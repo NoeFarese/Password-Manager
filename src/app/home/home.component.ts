@@ -60,6 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   protected numberOfEintraege = computed(() => this.eintraege().length);
   protected hasEntries = signal<boolean>(true);
   protected showOnlyFavoriten = signal<boolean>(false);
+  protected maximalNumberOfEintrage = signal<number>(3);
   private snackbarService = inject(SnackbarService);
   private router = inject(Router);
   private dialog = inject(MatDialog);
